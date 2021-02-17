@@ -756,6 +756,7 @@ class OpenMM(Engine):
                     nonbondedMethod=app.NoCutoff,
                     constraints=None,
                     rigidWater=False,
+                    **args,
                 )
             except ValueError:
                 modeller.addExtraParticles(forcefield)
