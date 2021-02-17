@@ -6,7 +6,7 @@ Copyright 2016-2020 Regents of the University of California and the Authors
 Authors: Lee-Ping Wang, Chenchen Song
 
 Contributors: Yudong Qiu, Daniel G. A. Smith, Alberto Gobbi, Josh Horton
-
+ 
 Redistribution and use in source and binary forms, with or without modification,
 are permitted provided that the following conditions are met:
 
