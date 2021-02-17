@@ -709,7 +709,7 @@ class OpenMM(Engine):
     Run a OpenMM energy and gradient calculation.
     """
 
-    def __init__(self, molecule, pdb, xml):
+    def __init__(self, molecule, pdb, xml, **args):
         try:
             import simtk.openmm.app as app
             import simtk.openmm as mm
@@ -764,6 +764,7 @@ class OpenMM(Engine):
                     nonbondedMethod=app.NoCutoff,
                     constraints=None,
                     rigidWater=False,
+                    **args,
                 )
         # apply opls combination rule if we are using it
         if self.combination == "opls":
