@@ -771,14 +771,17 @@ class OpenMM(Engine):
             logger.info("\nUsing geometric combination rules\n")
             system = self.opls(system)
         integrator = mm.VerletIntegrator(1.0 * u.femtoseconds)
-        platform = mm.Platform.getPlatformByName("Reference")
+        platform = mm.Platform.getPlatformByName("OpenCL")
+        properties = {"OpenCLPrecision": "double"}
         self.n_virtual_sites = sum(
             [
                 system.isVirtualSite(particle)
                 for particle in range(system.getNumParticles())
             ]
         )
-        self.simulation = app.Simulation(pdb.topology, system, integrator, platform)
+        self.simulation = app.Simulation(
+            pdb.topology, system, integrator, platform, properties
+        )
         super(OpenMM, self).__init__(molecule)
 
     def calc_new(self, coords, dirname):
